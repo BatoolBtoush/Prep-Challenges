@@ -220,6 +220,7 @@ function gradesAvg(arr) {
 
 function studentsResult(arr) {
     // write your code here
+    // juihuhui
 }
 
 module.exports = { square, fullName, gradesAvg, studentsResult };
