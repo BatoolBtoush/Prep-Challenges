@@ -19,8 +19,7 @@
 
 function square(arr) {
 
-    const array = [ 2, 8, 3, 5 ];
-    const newArray = array.map(arr => arr *2);
+    const newArray = arr.map(element => element * element);
     return newArray;
 }
 
@@ -61,31 +60,7 @@ function square(arr) {
 //
 
 function fullName(arr) {
-
-const arrayNames =[
-    {
-        firstName: 'Adam',
-        lastName: 'Anderson',
-    },
-    {
-        firstName: 'Ben',
-        lastName: 'Zeller',
-    }, 
-    {
-        firstName: 'Peter',
-        lastName: 'Mccord',
-    },
-    {
-        firstName: 'Fred',
-        lastName: 'Sagar',
-    },
-    {
-        firstName: 'Nathan',
-        lastName: 'Weiss',
-    }
-]
- const newArrayFullNames = arrayNames.map(arr => {
-     `${arr.firstName} ${arr.lastName}`})
+ const newArrayFullNames = arr.map(element => `${element.firstName} ${element.lastName}`);
      return newArrayFullNames;
 }
 
@@ -148,9 +123,9 @@ const arrayNames =[
 // -------------
 
 function gradesAvg(arr) {
-    // write your code here
+    let average = arr.map((element => ({ ...element,avg:(element.gradsList.reduce((i,j) => i + j))/element.gradsList.length})))
+    return average;
 }
-
 
 // 4) ---------------------
 //
@@ -218,9 +193,15 @@ function gradesAvg(arr) {
 //]
 // -------------
 
+
+
+
 function studentsResult(arr) {
-    // write your code here
-    // juihuhui
-}
+    const finalResult = arr.map((element => ({
+         ...element,...(((element.gradsList.reduce((i, j) => i + j))/element.gradsList.length) >= 50 && {result: 'Passed'}),
+        ...(((element.gradsList.reduce((i, j) => i + j))/element.gradsList.length) < 50 && {result: 'Failed'}), })))
+    return finalResult;
+    }
+
 
 module.exports = { square, fullName, gradesAvg, studentsResult };
