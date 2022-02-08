@@ -15,11 +15,7 @@
 // ------------------------
 
 
-const oddFiltration = (arr) => {
-    let array =  [20, 54, 89, 41, 2, 31, 111, 15, 0, 31, 200];
-    let odds = array.filter(x => x%2)
-    console.log(odds);
-} 
+const oddFiltration = arr => arr.filter(x => x%2 != 0) 
 
 // 2) ---------------------
 // 
@@ -68,46 +64,13 @@ const oddFiltration = (arr) => {
 //  2- If one of the names is null dont add it to the full name
 // ------------------------
 
-const cvsFiltration = (arr) => {
-    var cvs = [
-    {
-        firstName: "Jason",
-        LastName: "James",
-        yearsOfExperience: 20,
-        tech: "JS"
-    },
-    {
-        firstName: "Shira",
-        LastName: null,
-        yearsOfExperience: 5,
-        tech: ".Net"
-    },
-    {
-        firstName: "Dmitri",
-        LastName: "Akkerman",
-        yearsOfExperience: 1,
-        tech: "Python"
-    },
-    {
-        firstName: "Isabella",
-        LastName: null,
-        yearsOfExperience: 4,
-        tech: "Java"
-    }
-    ]
-    let newCv = [];
-    for(var i=0;i<cvs.length;i++){
-        if (cvs[i].tech == "JS"){
-            newCv.push(cvs[i]);
-            let finalCv = cvs.filter(cv => cv.yearsOfExperience > 4 );
-            console.log (finalCv)
-        } else if (cvs[i].LastName == null){
-            console.log(newCv)
-        }
-    }
 
-}
-
+function cvsFiltration(arr) {
+    let newCv = arr.filter((element) => element.yearsOfExperience > 4 && element.firstName != null && element.LastName != null && element.tech == "JS");
+    return newCv.map((item) => {
+      return ({fullName: `${item.firstName} ${item.LastName}`, tech: item.tech});
+    });
+  }
 
 // 3) ---------------------
 //
@@ -117,10 +80,7 @@ const cvsFiltration = (arr) => {
 // ['car', 'boy', 'spy', 'building', 'why', 'dry' ] ==> ['spy', 'why', 'dry']
 // 
 // ------------------------
-
-const vowelsFiltration = (arr) => {
-    // write your code here
-} 
+const vowelsFiltration = arr =>  arr.match(/[aeiou]/gi) || [].length
 
 // 4) ---------------------
 //
@@ -137,8 +97,16 @@ const vowelsFiltration = (arr) => {
 // ------------------------
 
 const skillComparison = (arr1, arr2) => {
-    // write your code here
+    let firstEmployee1 = arr1.filter(item=>{
+        return(!(arr2.includes(item)))
+    })
+    let firstEmployee2 = arr2.filter(item=>{
+        return(!(arr1.includes(item)));
+    })
+    let resultArray =[].concat(firstEmployee1,firstEmployee2);
+    return resultArray; 
 }
+
 
 
 module.exports = { oddFiltration, cvsFiltration, vowelsFiltration, skillComparison };
