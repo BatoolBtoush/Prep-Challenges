@@ -218,6 +218,10 @@ function gradesAvg(arr) {
 //]
 // -------------
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 function studentsResult(arr) {
     // write your code here
     // juihuhui
