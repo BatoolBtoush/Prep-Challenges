@@ -11,35 +11,36 @@
 //  Given an array of objects, count the objects by using reduce method.
 
 //  EX:
-var voters = [
-    {
-        voter_Name: "Adam Scott",
-        votes_To: "James",
-    },
-    {
-        voter_Name: "Abril Blake",
-        votes_To: "Jade",
-    },
-    {
-        voter_Name: "Ruby Andrews",
-        votes_To: "Jade",
-    },
-    {
-        voter_Name: "Junior Maxwell",
-        votes_To: "Bailey",
-    },
-    {
-        voter_Name: "Junior Maxwell",
-        votes_To: "Bailey",
- }
-]
+// var voters = [
+//     {
+//         voter_Name: "Adam Scott",
+//         votes_To: "James",
+//     },
+//     {
+//         voter_Name: "Abril Blake",
+//         votes_To: "Jade",
+//     },
+//     {
+//         voter_Name: "Ruby Andrews",
+//         votes_To: "Jade",
+//     },
+//     {
+//         voter_Name: "Junior Maxwell",
+//         votes_To: "Bailey",
+//     },
+//     {
+//         voter_Name: "Junior Maxwell",
+//         votes_To: "Bailey",
+//  }
+// ]
 //
 
 // ------------------------
 
-const objectCounter = (obj) => {
-    result = voters.reduce((acc, voter) => acc +1, 0);
-
+const objectCounter = (obj) =>{
+    let sum = obj.reduce((x, y, accumulator) => {
+        return accumulator++ })
+        return sum +1;
 }
 
 // 2) ---------------------
@@ -56,11 +57,8 @@ const objectCounter = (obj) => {
 // ------------------------
 
 const stringReverse = (str) => {
-
-    return str.split("").reduce((rev, char)=>{
-    return char + rev
-    }
-    ,'');
+    let revStr =str.split(' ').reduce((x, y) => y +" "+ x);
+    return revStr
 }
 
 // 3) ---------------------
@@ -102,8 +100,14 @@ const stringReverse = (str) => {
 // ------------------------
 
 const statistics = (obj) => {
-    // write your code here
-}
+    // let res = obj.reduce(function (x, y) 
+    let res = obj.reduce((x, y) => {
+    return { ...x, [y.votes_To]:
+      (x[y.votes_To] || 0) + 1 };
+      }, {})
+    // console.log(res)
+    return res;
+    }
 
 
 
