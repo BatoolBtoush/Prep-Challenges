@@ -197,10 +197,16 @@ function gradesAvg(arr) {
 
 
 function studentsResult(arr) {
-    const finalResult = arr.map((element => ({
-         ...element,...(((element.gradsList.reduce((i, j) => i + j))/element.gradsList.length) >= 50 && {result: 'Passed'}),
-        ...(((element.gradsList.reduce((i, j) => i + j))/element.gradsList.length) < 50 && {result: 'Failed'}), })))
-    return finalResult;
+    // const finalResult = arr.map((element => ({
+    //      ...element,...(((element.gradsList.reduce((i, j) => i + j))/element.gradsList.length) >= 50 && {result: 'Passed'}),
+    //     ...(((element.gradsList.reduce((i, j) => i + j))/element.gradsList.length) < 50 && {result: 'Failed'}), })))
+    // return finalResult;
+    return arr.map(std => {
+        return {
+            ...std,
+            result: std.avg >=50 ? "Passed" : "Failed"
+        };
+    })
     }
 
 
