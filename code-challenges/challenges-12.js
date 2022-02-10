@@ -80,7 +80,7 @@ function cvsFiltration(arr) {
 // ['car', 'boy', 'spy', 'building', 'why', 'dry' ] ==> ['spy', 'why', 'dry']
 // 
 // ------------------------
-const vowelsFiltration = arr =>  arr.match(/[aeiou]/gi) || [].length
+const vowelsFiltration = arr =>  arr.filter(item => !/[a-z]*[aeiou][a-z]*/i.test(item));
 
 // 4) ---------------------
 //
