@@ -65,8 +65,13 @@ const replaceWords = (str) => {
 // ------------------------
 
 const arrToStr = (arr) => {
-    // write your code here
-}
+  return arr
+    .map((word, index) => {
+      if ((index + 1) % 5 === 0) return `${word},`;
+      else return word;
+    })
+    .join(" ");
+};
 
 // 5) ---------------------
 // 
