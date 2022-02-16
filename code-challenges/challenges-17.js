@@ -15,12 +15,11 @@
 //
 
 const recursionPattern = (int1, int2) => {
-        if(int1 >= 0){
-          return recursionPattern(int1-int2);
-        }else if(int1 <= -1){
+        // if(int1 = 0){
+        //   return int2;
+        // }else if(int1 <= -1){
          // let ar =[];
-
-        }
+        // }
        
 }
 // -------------------------------------------------------------------------------------------------------
